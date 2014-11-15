@@ -124,7 +124,6 @@
                     </a>
                 </section>
             </footer>
-            {{> comment-list}}
             <div class="bottom-teaser cf">
                 <div class="isLeft">
                     <h5 class="index-headline featured"><span>Written by</span></h5>
@@ -133,7 +132,18 @@
                         <h4>{{author}}</h4>
                         <p class="bio">{{author.bio}}</p>
                         <hr>
-                        <p class="published">Published <time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time></p>
+						<p class="published">
+							<a class="fa fa-twitter fa-2x" href="https://twitter.com/A3Ghosh">
+							</a>
+							<a class="fa fa-google-plus fa-2x" href="https://plus.google.com/+AtindriyaGhosh1989?rel=author">
+							</a>
+							<a class="fa fa-linkedin-square fa-2x" href="http://in.linkedin.com/in/atindriyaghosh/">
+							</a>
+							<a class="fa fa-github fa-2x" href="https://github.com/atindriyaghosh">
+							</a>
+							<a class="fa fa-rss-square fa-2x" href="http://feedpress.me/atindriyaghosh">
+							</a>							
+						</p>
                     </section>
                 </div>
                 {{/post}}
@@ -141,7 +151,6 @@
                     <h5 class="index-headline featured"><span>Supported by</span></h5>
                     <footer class="site-footer">
                         <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org"> Ghost</a></section>
-                        <a class="subscribe" href="{{@blog.url}}/rss/"><span class="tooltip">You should subscribe to my RSS feed.</span></a>
                         <div class="inner">
                              <section class="copyright">All content copyright <a href="{{@blog.url}}/">{{@blog.title}}</a> &copy; {{date format="YYYY"}}<br>All rights reserved.</section>
 
@@ -149,6 +158,7 @@
                     </footer>
                 </div>
             </div>
+			{{> comment-list}}
 
     </article>
 
