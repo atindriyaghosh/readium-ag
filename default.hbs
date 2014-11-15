@@ -35,6 +35,8 @@
     {{! Styles'n'Scripts }}
     <link rel="stylesheet" type="text/css" media="screen" href="{{asset "css/main.css"}}" />
     <link rel="stylesheet" type="text/css" media="print" href="{{asset "css/print.css"}}" />
+	<!-- Pushy CSS -->
+    <link rel="stylesheet" href="{{asset "css/pushy.css"}}">
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 	{{! Load and configure mathjax }}
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -45,14 +47,28 @@
     {{ghost_head}}
 </head>
 <body class="{{body_class}}">
+	<!-- Pushy Menu -->
+    <nav class="pushy pushy-left">
+        <ul>
+			<li><a href="{{@blog.url}}"><span class="fa fa-home fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Home</a></li>
+            <li><a href="{{@blog.url}}/aboutme"><span class="fa fa-user fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;About Me</a></li>
+        </ul>
+    </nav>
 
-    <a href="{{@blog.url}}" class="logo-readium"><span class="logo" style="background-image: url({{@blog.logo}})"></span></a>
-    {{! Everything else gets inserted here }}
-    {{{body}}}
-
+    <!-- Site Overlay -->
+    <div class="site-overlay"></div>
+	
+	<div id="container">
+		<!-- Menu Button -->
+		<div class="menu-btn logo-readium logo"><span class="logo"></span></div>
+		
+		<!-- <a href="{{@blog.url}}" class="logo-readium"><span class="logo" style="background-image: url({{@blog.logo}})"></span></a> -->
+		{{! Everything else gets inserted here }}
+		{{{body}}}
+	</div>
     {{! Ghost outputs important scripts and data with this tag }}
     {{ghost_foot}}
-
+	
     {{! The main JavaScript file for Casper }}
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
@@ -71,6 +87,9 @@
       ga('send', 'pageview');
     
     </script>
+	
+	<!-- Pushy JS -->
+    <script type="text/javascript" src="{{asset "js/min/pushy.min.js"}}"></script>
 
 </body>
 </html>
