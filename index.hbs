@@ -50,54 +50,56 @@
 </script>
 
 {{! The main content area on the homepage }}
-<main class="content" role="main">
+<main role="main">
+	<!-- Added this fix since IE doesn't support main tag -->
+	<div class="content">
 
-    <h5 class="index-headline featured"><span>Featured</span></h5>
+		<h5 class="index-headline featured"><span>Featured</span></h5>
 
-    <div class="container featured">
-        {{#foreach posts}}
-            {{#if featured}}
-                <article class="{{post_class}}" itemscope itemtype="http://schema.org/BlogPosting" role="article">
-                    <div class="article-item">
-                        <header class="post-header">
-                            <h2 class="post-title" itemprop="name"><a href="{{url}}" itemprop="url">{{{title}}}</a></h2>
-                        </header>
-                        <section class="post-excerpt" itemprop="description">
-                            <p>{{excerpt characters="130"}}&hellip;</p>
-                        </section>
-                        <div class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span></div>
-                    </div>
-                </article>
-            {{/if}}
-        {{/foreach}}
-    </div>
-
-
-    <h5 class="index-headline normal"><span>Regular</span></h5>
-
-    <div class="cf frame">
-    {{#foreach posts}}
-        {{#if featured}}
-        {{else}}
-            <article class="{{post_class}}" itemscope itemtype="http://schema.org/BlogPosting" role="article">
-                <div class="article-item">
-                    <header class="post-header">
-                        <h2 class="post-title" itemprop="name"><a href="{{url}}" itemprop="url">{{{title}}}</a></h2>
-                    </header>
-                    <section class="post-excerpt" itemprop="description">
-                        <p>{{excerpt characters="130"}}&hellip;</p>
-                    </section>
-                    <div class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span></div>
-                </div>
-            </article>
-        {{/if}}
-    {{/foreach}}
-    </div>
+		<div class="container featured">
+			{{#foreach posts}}
+				{{#if featured}}
+					<article class="{{post_class}}" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+						<div class="article-item">
+							<header class="post-header">
+								<h2 class="post-title" itemprop="name"><a href="{{url}}" itemprop="url">{{{title}}}</a></h2>
+							</header>
+							<section class="post-excerpt" itemprop="description">
+								<p>{{excerpt characters="130"}}&hellip;</p>
+							</section>
+							<div class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span></div>
+						</div>
+					</article>
+				{{/if}}
+			{{/foreach}}
+		</div>
 
 
-    {{!! After all the posts, we have the previous/next pagination links }}
-    {{pagination}}
+		<h5 class="index-headline normal"><span>Regular</span></h5>
 
+		<div class="cf frame">
+		{{#foreach posts}}
+			{{#if featured}}
+			{{else}}
+				<article class="{{post_class}}" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+					<div class="article-item">
+						<header class="post-header">
+							<h2 class="post-title" itemprop="name"><a href="{{url}}" itemprop="url">{{{title}}}</a></h2>
+						</header>
+						<section class="post-excerpt" itemprop="description">
+							<p>{{excerpt characters="130"}}&hellip;</p>
+						</section>
+						<div class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> <span class="post-tags-set">on {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}</span></div>
+					</div>
+				</article>
+			{{/if}}
+		{{/foreach}}
+		</div>
+
+
+		{{!! After all the posts, we have the previous/next pagination links }}
+		{{pagination}}
+	</div>
 </main>
 
 <footer class="site-footer">
