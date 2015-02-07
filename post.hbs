@@ -12,13 +12,11 @@
 			{{! Everything inside the #post tags pulls data from the post }}
 			{{#post}}
 
-			{{#has tag="articleImage"}}
+			{{#if image}}
 
 			<div class="article-image">
 				<div class="post-image-image">
-
-					Article Image
-
+					<img src="{{image}}" id="articleImage"></img>
 				</div>
 				<div class="post-meta">
 					<h1 class="post-title">{{{title}}}</h1>
@@ -38,8 +36,7 @@
 					$(document).ready(function(){
 
 						$('.post-content').each(function() {
-							var $this = $(this),
-								img = $this.find('img:first'),
+							var img = $('#articleImage'),
 								url = img.attr('src');
 
 							$(".post-image-image").css('background-image', 'url('+url+')');
@@ -100,7 +97,7 @@
 			<br>
 			<br>
 
-			{{/has}}
+			{{/if}}
 
 
 				<section class="post-content">
